@@ -7,15 +7,16 @@ function NewMeetupPage() {
     const response = await fetch("/api/new-meetup", {
       method: "POST",
       body: JSON.stringify(enteredMeetupData),
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     });
+
     const data = await response.json();
 
     console.log(data);
-    router.push('/');
 
+    router.push("/");
   }
   return <NewMeetupForm onAddMeetup={addMeetupHandler} />;
 }
